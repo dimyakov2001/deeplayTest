@@ -6,7 +6,7 @@ public class Utils {
      * @param matrix – входная матрица
      * @return – boolean, является ли данная матрица квадратной
      */
-    public static boolean isSquareMatrix(final float[][] matrix) {
+    public static boolean isSquareMatrix(float[][] matrix) {
         final int shape = matrix.length;
         for (float[] row : matrix) {
             if (row.length != shape) {
@@ -34,5 +34,28 @@ public class Utils {
         }
 
         return matrix;
+    }
+
+    /**
+     * Нахождение индекса минимального элемента массива
+     * @param array – входной массив
+     * @return индекс минимального элемента массива
+     */
+    public static int argmin(float[] array) {
+        if (array.length == 0) {
+            throw new Error("Empty array");
+        }
+
+        float minVal = array[0];
+        int minArg = 0;
+
+        for (int i = 1; i < array.length; i++) {
+            if (array[i] < minVal) {
+                minVal = array[i];
+                minArg = i;
+            }
+        }
+
+        return minArg;
     }
 }
