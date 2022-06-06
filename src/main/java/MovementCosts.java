@@ -4,19 +4,26 @@ import java.util.HashMap;
 
 
 /**
- * Класс, возвращающий
+ * Класс, отвечающий за получение таблицы стоимости перемещения
  */
-public class Settings {
+public class MovementCosts {
 
-    public static HashMap<String, Creature> getSettings() {
+    /**
+     * Получение таблицы стоимости перемещения
+     * @return соответствие строка - объект Creature. Строка здесь – имя расы.
+     */
+    public static HashMap<String, Creature> getCosts() {
         final HashMap<String, Creature> creatures = new HashMap<>();
-        creatures.put(Constants.human, Settings.makeHuman());
-        creatures.put(Constants.swamper, Settings.makeSwamper());
-        creatures.put(Constants.leshiy, Settings.makeLeshiy());
+        creatures.put(Constants.human, MovementCosts.makeHuman());
+        creatures.put(Constants.swamper, MovementCosts.makeSwamper());
+        creatures.put(Constants.leshiy, MovementCosts.makeLeshiy());
 
         return creatures;
     }
 
+    /**
+     * @return затраты на перемещение для человека
+     */
     private static Creature makeHuman() {
         final Creature human = new Creature();
         human.transportCosts.put(Constants.swamp, 5);
@@ -27,6 +34,9 @@ public class Settings {
         return human;
     }
 
+    /**
+     * @return затраты на перемещение для болотника
+     */
     private static Creature makeSwamper() {
         final Creature swamper = new Creature();
         swamper.transportCosts.put(Constants.swamp, 2);
@@ -37,6 +47,9 @@ public class Settings {
         return swamper;
     }
 
+    /**
+     * @return затраты на перемещение для лешего
+     */
     private static Creature makeLeshiy() {
         final Creature leshiy = new Creature();
         leshiy.transportCosts.put(Constants.swamp, 3);
