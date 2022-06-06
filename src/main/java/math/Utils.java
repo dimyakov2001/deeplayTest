@@ -92,4 +92,23 @@ public class Utils {
 
         return matrix;
     }
+
+    /**
+     * Заменяет все вхождения findValue в матрице matrix на setValue
+     * @param matrix – исходная матрица
+     * @param findValue – значение, которое нужно заменить
+     * @param setValue – значение, на которое нужно заменить
+     * @return – исходная матрица
+     */
+    public static float[][] matrixReplace(float[][] matrix, float findValue, float setValue) {
+        for (int i = 0; i < matrix.length; i++) {
+            for (int j = 0; j < matrix[i].length; j++) {
+                if (matrix[i][j] == findValue) {
+                    matrix[i][j] = setValue;
+                }
+            }
+        }
+
+        return matrix;
+    }
 }

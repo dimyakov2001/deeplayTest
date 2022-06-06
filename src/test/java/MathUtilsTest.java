@@ -88,7 +88,27 @@ public class MathUtilsTest {
         for (int i = 0; i < expectedMatrix.length; i++) {
             Assert.assertArrayEquals(expectedMatrix[i], ans[i], (float) 0.000001);
         }
+    }
 
+    @Test
+    public void testReplaceMatrix() {
+        float[][] matrix = {
+                {1, 0, 3},
+                {4, 5, 0},
+                {0, 8, 9}
+        };
+
+        float[][] expectedMatrix = {
+                { 1, -1,  3},
+                { 4,  5, -1},
+                {-1,  8,  9}
+        };
+
+        float[][] ans = Utils.matrixReplace(matrix, 0, -1);
+
+        for (int i = 0; i < expectedMatrix.length; i++) {
+            Assert.assertArrayEquals(expectedMatrix[i], ans[i], (float) 0.000001);
+        }
     }
 
 }
