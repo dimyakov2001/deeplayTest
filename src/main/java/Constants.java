@@ -1,5 +1,8 @@
 package main.java;
 
+/**
+ * Строковые константы
+ */
 public class Constants {
     public static final String swamp = "S";
     public static final String water = "W";

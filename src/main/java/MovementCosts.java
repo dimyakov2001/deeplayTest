@@ -3,6 +3,9 @@ package main.java;
 import java.util.HashMap;
 
 
+/**
+ * Класс, возвращающий
+ */
 public class Settings {
 
     public static HashMap<String, Creature> getSettings() {
