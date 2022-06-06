@@ -11,47 +11,48 @@ import org.junit.rules.ExpectedException;
  * Тесты математических утилит
  */
 public class MathUtilsTest {
-    /**
-     * Тест на проверку квадратности матрицы
-     */
+
     @Test
     public void testSquarePositive() {
-        final float[][] matrix = {
+        float[][] matrix = {
                 {1, 2},
                 {3, 4}
         };
 
-        final boolean ans = Utils.isSquareMatrix(matrix);
+        boolean ans = Utils.isSquareMatrix(matrix);
         Assert.assertTrue(ans);
     }
 
-    /**
-     * Тест на проверку квадратности матрицы
-     */
     @Test
     public void testSquareNegative() {
-        final float[][] matrix = {
+        float[][] matrix = {
                 {1, 2, 3},
                 {4, 5, 6}
         };
 
-        final boolean ans = Utils.isSquareMatrix(matrix);
+        boolean ans = Utils.isSquareMatrix(matrix);
         Assert.assertFalse(ans);
     }
 
-    /**
-     * Проверка работы инициализатора матриц
-     */
     @Test
     public void testFilledMatrix() {
-        final float[][] expectedMatrix = {
+        float[][] expectedMatrix = {
                 {1, 1, 1},
                 {1, 1, 1}
         };
 
-        final float[][] ans = Utils.initFilledMatrix(2, 3, 1);
+        float[][] ans = Utils.initFilledMatrix(2, 3, 1);
 
         Assert.assertArrayEquals(expectedMatrix, ans);
+    }
+    
+    @Test
+    public void testArgmin() {
+        float[] array = {1, 2, 3, -1, -3, 10};
+
+        int ans = Utils.argmin(array);
+
+        Assert.assertEquals(4, ans);
     }
 
 
