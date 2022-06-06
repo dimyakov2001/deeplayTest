@@ -69,4 +69,26 @@ public class MathUtilsTest {
         Assert.assertArrayEquals(expectedCol, ans, (float) 0.000001);
     }
 
+    @Test
+    public void testFillMatrixColumn() {
+        float[][] matrix = {
+                {1, 2, 3},
+                {4, 5, 6},
+                {7, 8, 9}
+        };
+
+        float[][] expectedMatrix = {
+                {1, 0, 3},
+                {4, 0, 6},
+                {7, 0, 9}
+        };
+
+        float[][] ans = Utils.fillMatrixColumn(matrix, 1, 0);
+
+        for (int i = 0; i < expectedMatrix.length; i++) {
+            Assert.assertArrayEquals(expectedMatrix[i], ans[i], (float) 0.000001);
+        }
+
+    }
+
 }

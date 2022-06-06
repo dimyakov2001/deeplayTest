@@ -75,4 +75,21 @@ public class Utils {
 
         return col;
     }
+
+    /**
+     * Заполнение столбца матрицы заданным значением
+     * @param matrix – входная матрица
+     * @param columnIndex – индекс столбца
+     * @param value – значение
+     * @return новая матрица
+     */
+    public static float[][] fillMatrixColumn(float[][] matrix, int columnIndex, float value) {
+        final int shape = matrix.length;
+
+        for (int i = 0; i < shape; i++) {
+            matrix[i][columnIndex] = value;
+        }
+
+        return matrix;
+    }
 }
