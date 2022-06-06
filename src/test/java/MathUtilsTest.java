@@ -55,5 +55,18 @@ public class MathUtilsTest {
         Assert.assertEquals(4, ans);
     }
 
+    @Test
+    public void testGetMatrixColumn() {
+        float[][] matrix = {
+                {1, 2, 3},
+                {4, 5, 6},
+                {7, 8, 9}
+        };
+
+        float[] expectedCol = {3, 6, 9};
+        float[] ans = Utils.getMatrixColumn(matrix, 2);
+
+        Assert.assertArrayEquals(expectedCol, ans, (float) 0.000001);
+    }
 
 }

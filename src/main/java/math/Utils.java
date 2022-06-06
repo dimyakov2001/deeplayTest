@@ -58,4 +58,21 @@ public class Utils {
 
         return minArg;
     }
+
+    /**
+     * Получение столбца матрицы
+     * @param matrix – матрица
+     * @param columnIndex – индекс столбца
+     * @return столбец матрицы
+     */
+    public static float[] getMatrixColumn(float[][] matrix, int columnIndex) {
+        final int shape = matrix.length;
+        float[] col = new float[shape];
+
+        for (int i = 0; i < shape; i++) {
+            col[i] = matrix[i][columnIndex];
+        }
+
+        return col;
+    }
 }
