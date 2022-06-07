@@ -24,11 +24,11 @@ public class MovementCosts {
      */
     private static Creature makeHuman() {
         final Creature human = new Creature();
-        human.species = Constants.human;
-        human.transportCosts.put(Constants.swamp, 5);
-        human.transportCosts.put(Constants.water, 2);
-        human.transportCosts.put(Constants.bushes, 3);
-        human.transportCosts.put(Constants.plain, 1);
+        human.setSpecies(Constants.human);
+        human.setTransportCosts(Constants.swamp, 5);
+        human.setTransportCosts(Constants.water, 2);
+        human.setTransportCosts(Constants.bushes, 3);
+        human.setTransportCosts(Constants.plain, 1);
 
         return human;
     }
@@ -38,11 +38,11 @@ public class MovementCosts {
      */
     private static Creature makeSwamper() {
         final Creature swamper = new Creature();
-        swamper.species = Constants.swamper;
-        swamper.transportCosts.put(Constants.swamp, 2);
-        swamper.transportCosts.put(Constants.water, 2);
-        swamper.transportCosts.put(Constants.bushes, 5);
-        swamper.transportCosts.put(Constants.plain, 2);
+        swamper.setSpecies(Constants.swamper);
+        swamper.setTransportCosts(Constants.swamp, 2);
+        swamper.setTransportCosts(Constants.water, 2);
+        swamper.setTransportCosts(Constants.bushes, 5);
+        swamper.setTransportCosts(Constants.plain, 2);
 
         return swamper;
     }
@@ -52,11 +52,11 @@ public class MovementCosts {
      */
     private static Creature makeLeshiy() {
         final Creature leshiy = new Creature();
-        leshiy.species = Constants.leshiy;
-        leshiy.transportCosts.put(Constants.swamp, 3);
-        leshiy.transportCosts.put(Constants.water, 3);
-        leshiy.transportCosts.put(Constants.bushes, 2);
-        leshiy.transportCosts.put(Constants.plain, 2);
+        leshiy.setSpecies(Constants.leshiy);
+        leshiy.setTransportCosts(Constants.swamp, 3);
+        leshiy.setTransportCosts(Constants.water, 3);
+        leshiy.setTransportCosts(Constants.bushes, 2);
+        leshiy.setTransportCosts(Constants.plain, 2);
 
         return leshiy;
     }
