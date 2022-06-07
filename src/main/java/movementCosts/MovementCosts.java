@@ -2,10 +2,6 @@ package main.java.movementCosts;
 
 import main.java.Constants;
 
-import java.util.Comparator;
-import java.util.HashMap;
-
-
 /**
  * Класс, отвечающий за получение таблицы стоимости перемещения
  */
