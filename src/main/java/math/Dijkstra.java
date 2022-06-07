@@ -2,6 +2,9 @@ package main.java.math;
 
 import main.java.InvalidParamsException;
 
+import java.util.HashSet;
+import java.util.Iterator;
+
 /**
  * Алгоритм Дейкстры для нахождения кратчайшего пути в графе
  */
@@ -31,6 +34,9 @@ public class Dijkstra {
         // инициализируем рабочую матрицу
         float[][] matrix = Utils.initFilledMatrix(matrixShape, matrixShape, Float.POSITIVE_INFINITY);
 
+        // инициализируем множество посещённых вершин
+        HashSet<Integer> visitedVertices = new HashSet<>();
+
         // текущая вершина и длина пути до неё
         int currentVertex = startVertex;
         float currentVertexPathLen = 0;
@@ -38,13 +44,16 @@ public class Dijkstra {
         while (currentVertex != finVertex) {
             // "вычёркиваем" столбец с номером вершины, равным currentVertex
             Utils.fillMatrixColumn(matrix, currentVertex, Float.POSITIVE_INFINITY);
+            visitedVertices.add(currentVertex);
 
             // пробегаем через все вершины и вычисляем, будет ли эффективней проходить через currentVertex
             for (int vertexIdx = 0; vertexIdx < matrixShape; vertexIdx++) {
-                float pathLenFromThisVertex = incidenceMatrix[currentVertex][vertexIdx] + currentVertexPathLen;
+                if (!visitedVertices.contains(vertexIdx)) {
+                    float pathLenFromThisVertex = incidenceMatrix[currentVertex][vertexIdx] + currentVertexPathLen;
+                    float pathLenFromOtherVertices = Dijkstra.minInColumnFromVisitedVertices(
+                            matrix, vertexIdx, visitedVertices);
 
-                if (pathLenFromThisVertex < matrix[currentVertex][vertexIdx]) {
-                    matrix[currentVertex][vertexIdx] = pathLenFromThisVertex;
+                    matrix[currentVertex][vertexIdx] = Math.min(pathLenFromThisVertex, pathLenFromOtherVertices);
                 }
             }
 
@@ -57,5 +66,24 @@ public class Dijkstra {
         }
 
         return currentVertexPathLen;
+    }
+
+    /**
+     * Вычисляет минимальное значение в столбце из тех вершин, которые были посещены
+     * @param matrix – рабочая матрица
+     * @param columnIdx – индекс столбца, в котором выбираем
+     * @param visited – вершины, среди которых ищем
+     * @return минимальное значение в столбце
+     */
+    private static float minInColumnFromVisitedVertices(float[][] matrix, int columnIdx, HashSet<Integer> visited) {
+        float min = Float.POSITIVE_INFINITY;
+
+        for (int iteratorIdx : visited) {
+            if (matrix[iteratorIdx][columnIdx] < min) {
+                min = matrix[iteratorIdx][columnIdx];
+            }
+        }
+
+        return min;
     }
 }
