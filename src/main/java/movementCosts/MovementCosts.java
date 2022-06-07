@@ -1,4 +1,6 @@
-package main.java;
+package main.java.movementCosts;
+
+import main.java.Constants;
 
 import java.util.HashMap;
 
