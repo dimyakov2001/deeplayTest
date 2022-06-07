@@ -1,5 +1,7 @@
 package main.java.math;
 
+import main.java.InvalidParamsException;
+
 /**
  * Алгоритм Дейкстры для нахождения кратчайшего пути в графе
  */
@@ -18,6 +20,13 @@ public class Dijkstra {
         }
 
         final int matrixShape = incidenceMatrix.length;
+
+        if (startVertex < 0 || startVertex >= matrixShape) {
+            throw new InvalidParamsException("Invalid start vertex.");
+        }
+        if (finVertex < 0 || finVertex >= matrixShape) {
+            throw new InvalidParamsException("Invalid finish vertex.");
+        }
 
         // инициализируем рабочую матрицу
         float[][] matrix = Utils.initFilledMatrix(matrixShape, matrixShape, Float.POSITIVE_INFINITY);
