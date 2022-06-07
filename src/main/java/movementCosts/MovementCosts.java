@@ -2,6 +2,7 @@ package main.java.movementCosts;
 
 import main.java.Constants;
 
+import java.util.Comparator;
 import java.util.HashMap;
 
 
@@ -12,15 +13,14 @@ public class MovementCosts {
 
     /**
      * Получение таблицы стоимости перемещения
-     * @return соответствие строка - объект Creature. Строка здесь – имя расы.
+     * @return массив Creature
      */
-    public static HashMap<String, Creature> getCosts() {
-        final HashMap<String, Creature> creatures = new HashMap<>();
-        creatures.put(Constants.human, MovementCosts.makeHuman());
-        creatures.put(Constants.swamper, MovementCosts.makeSwamper());
-        creatures.put(Constants.leshiy, MovementCosts.makeLeshiy());
-
-        return creatures;
+    public static Creature[] getCosts() {
+        return new Creature[] {
+                MovementCosts.makeHuman(),
+                MovementCosts.makeSwamper(),
+                MovementCosts.makeLeshiy()
+        };
     }
 
     /**
@@ -28,6 +28,7 @@ public class MovementCosts {
      */
     private static Creature makeHuman() {
         final Creature human = new Creature();
+        human.species = Constants.human;
         human.transportCosts.put(Constants.swamp, 5);
         human.transportCosts.put(Constants.water, 2);
         human.transportCosts.put(Constants.bushes, 3);
@@ -41,6 +42,7 @@ public class MovementCosts {
      */
     private static Creature makeSwamper() {
         final Creature swamper = new Creature();
+        swamper.species = Constants.swamper;
         swamper.transportCosts.put(Constants.swamp, 2);
         swamper.transportCosts.put(Constants.water, 2);
         swamper.transportCosts.put(Constants.bushes, 5);
@@ -54,6 +56,7 @@ public class MovementCosts {
      */
     private static Creature makeLeshiy() {
         final Creature leshiy = new Creature();
+        leshiy.species = Constants.leshiy;
         leshiy.transportCosts.put(Constants.swamp, 3);
         leshiy.transportCosts.put(Constants.water, 3);
         leshiy.transportCosts.put(Constants.bushes, 2);
