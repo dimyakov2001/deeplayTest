@@ -81,16 +81,13 @@ public class Utils {
      * @param matrix – входная матрица
      * @param columnIndex – индекс столбца
      * @param value – значение
-     * @return новая матрица
      */
-    public static float[][] fillMatrixColumn(float[][] matrix, int columnIndex, float value) {
+    public static void fillMatrixColumn(float[][] matrix, int columnIndex, float value) {
         final int shape = matrix.length;
 
         for (int i = 0; i < shape; i++) {
             matrix[i][columnIndex] = value;
         }
-
-        return matrix;
     }
 
     /**
@@ -98,9 +95,8 @@ public class Utils {
      * @param matrix – исходная матрица
      * @param findValue – значение, которое нужно заменить
      * @param setValue – значение, на которое нужно заменить
-     * @return – исходная матрица
      */
-    public static float[][] matrixReplace(float[][] matrix, float findValue, float setValue) {
+    public static void matrixReplace(float[][] matrix, float findValue, float setValue) {
         for (int i = 0; i < matrix.length; i++) {
             for (int j = 0; j < matrix[i].length; j++) {
                 if (matrix[i][j] == findValue) {
@@ -108,7 +104,5 @@ public class Utils {
                 }
             }
         }
-
-        return matrix;
     }
 }

@@ -37,7 +37,7 @@ public class Dijkstra {
 
         while (currentVertex != finVertex) {
             // "вычёркиваем" столбец с номером вершины, равным currentVertex
-            matrix = Utils.fillMatrixColumn(matrix, currentVertex, Float.POSITIVE_INFINITY);
+            Utils.fillMatrixColumn(matrix, currentVertex, Float.POSITIVE_INFINITY);
 
             // пробегаем через все вершины и вычисляем, будет ли эффективней проходить через currentVertex
             for (int vertexIdx = 0; vertexIdx < matrixShape; vertexIdx++) {

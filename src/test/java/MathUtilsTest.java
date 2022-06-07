@@ -83,10 +83,10 @@ public class MathUtilsTest {
                 {7, 0, 9}
         };
 
-        float[][] ans = Utils.fillMatrixColumn(matrix, 1, 0);
+        Utils.fillMatrixColumn(matrix, 1, 0);
 
         for (int i = 0; i < expectedMatrix.length; i++) {
-            Assert.assertArrayEquals(expectedMatrix[i], ans[i], (float) 0.000001);
+            Assert.assertArrayEquals(expectedMatrix[i], matrix[i], (float) 0.000001);
         }
     }
 
@@ -104,10 +104,10 @@ public class MathUtilsTest {
                 {-1,  8,  9}
         };
 
-        float[][] ans = Utils.matrixReplace(matrix, 0, -1);
+        Utils.matrixReplace(matrix, 0, -1);
 
         for (int i = 0; i < expectedMatrix.length; i++) {
-            Assert.assertArrayEquals(expectedMatrix[i], ans[i], (float) 0.000001);
+            Assert.assertArrayEquals(expectedMatrix[i], matrix[i], (float) 0.000001);
         }
     }
 

@@ -21,7 +21,7 @@ public class DijkstraTest {
      */
     @Test
     public void testCorrect() {
-        final float[][] zeroIncidenceMatrix = {
+        float[][] incidenceMatrix = {
                 {0  , 50 , 0  , 0  , 50 , 60 , 0  , 150, 140, 0  },
                 {50 , 0  , 50 , 0  , 0  , 0  , 0  , 0  , 0  , 0  },
                 {0  , 50 , 0  , 45 , 0  , 0  , 0  , 0  , 60 , 0  },
@@ -34,15 +34,15 @@ public class DijkstraTest {
                 {0  , 0  , 0  , 55 , 0  , 0  , 0  , 0  , 45 , 0  }
         };
 
-        final float[][] incidenceMatrix = Utils.matrixReplace(zeroIncidenceMatrix, 0, Float.POSITIVE_INFINITY);
+        Utils.matrixReplace(incidenceMatrix, 0, Float.POSITIVE_INFINITY);
 
-        final float ans = Dijkstra.solve(incidenceMatrix, 0, 9);
+        float ans = Dijkstra.solve(incidenceMatrix, 0, 9);
         Assert.assertEquals(185, ans, 0.000001);
     }
 
     @Test
     public void testReal() {
-        float[][] zeroIncidenceMatrix = {
+        float[][] incidenceMatrix = {
                 {0, 3, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
                 {5, 0, 2, 0, 0, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
                 {0, 3, 0, 5, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0},
@@ -61,7 +61,7 @@ public class DijkstraTest {
                 {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 0, 0, 1, 0}
         };
 
-        float[][] incidenceMatrix = Utils.matrixReplace(zeroIncidenceMatrix, 0, Float.POSITIVE_INFINITY);
+        Utils.matrixReplace(incidenceMatrix, 0, Float.POSITIVE_INFINITY);
 
         float ans = Dijkstra.solve(incidenceMatrix, 0, 15);
         Assert.assertEquals(10, ans, 0.000001);
@@ -72,7 +72,7 @@ public class DijkstraTest {
      */
     @Test
     public void testInvalidIncidenceMatrixShape() {
-        float[][] zeroIncidenceMatrix = {
+        float[][] incidenceMatrix = {
                 {0  , 50 , 0  , 0  , 50 , 60 , 0  , 150, 140, 0  },
                 {50 , 0  , 50 , 0  , 0  , 0  , 0  , 0  , 0},
                 {0  , 50 , 0  , 45 , 0  , 0  , 0  , 0  , 60 , 0  },
@@ -85,7 +85,7 @@ public class DijkstraTest {
                 {0  , 0  , 0  , 55 , 0  , 0  , 0  , 0  , 45 , 0  }
         };
 
-        final float[][] incidenceMatrix = Utils.matrixReplace(zeroIncidenceMatrix, 0, Float.POSITIVE_INFINITY);
+        Utils.matrixReplace(incidenceMatrix, 0, Float.POSITIVE_INFINITY);
 
         thrown.expect(InvalidShapeException.class);
         Dijkstra.solve(incidenceMatrix, 0, 9);
@@ -96,7 +96,7 @@ public class DijkstraTest {
      */
     @Test
     public void testNonSquareIncidenceMatrix() {
-        float[][] zeroIncidenceMatrix = {
+        float[][] incidenceMatrix = {
                 {0  , 50 , 0  , 0  , 50 , 60 , 0  , 150, 140, 0  },
                 {50 , 0  , 50 , 0  , 0  , 0  , 0  , 0  , 0  , 0  },
                 {0  , 50 , 0  , 45 , 0  , 0  , 0  , 0  , 60 , 0  },
@@ -110,7 +110,7 @@ public class DijkstraTest {
                 {0  , 0  , 0  , 55 , 0  , 0  , 0  , 0  , 45 , 0  }
         };
 
-        final float[][] incidenceMatrix = Utils.matrixReplace(zeroIncidenceMatrix, 0, Float.POSITIVE_INFINITY);
+        Utils.matrixReplace(incidenceMatrix, 0, Float.POSITIVE_INFINITY);
 
         thrown.expect(InvalidShapeException.class);
         Dijkstra.solve(incidenceMatrix, 0, 9);
@@ -118,7 +118,7 @@ public class DijkstraTest {
 
     @Test
     public void testInvalidVertex() {
-        float[][] zeroIncidenceMatrix = {
+        float[][] incidenceMatrix = {
                 {0  , 50 , 0  , 0  , 50 , 60 , 0  , 150, 140, 0  },
                 {50 , 0  , 50 , 0  , 0  , 0  , 0  , 0  , 0  , 0  },
                 {0  , 50 , 0  , 45 , 0  , 0  , 0  , 0  , 60 , 0  },
@@ -132,7 +132,7 @@ public class DijkstraTest {
                 {0  , 0  , 0  , 55 , 0  , 0  , 0  , 0  , 45 , 0  }
         };
 
-        final float[][] incidenceMatrix = Utils.matrixReplace(zeroIncidenceMatrix, 0, Float.POSITIVE_INFINITY);
+        Utils.matrixReplace(incidenceMatrix, 0, Float.POSITIVE_INFINITY);
 
         thrown.expect(InvalidShapeException.class);
         Dijkstra.solve(incidenceMatrix, 0, 10);
