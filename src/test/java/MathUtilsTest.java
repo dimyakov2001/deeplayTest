@@ -1,11 +1,8 @@
 package test.java;
 
-import main.java.math.InvalidShapeException;
 import main.java.math.Utils;
-import org.junit.Rule;
 import org.junit.Test;
 import org.junit.Assert;
-import org.junit.rules.ExpectedException;
 
 /**
  * Тесты математических утилит

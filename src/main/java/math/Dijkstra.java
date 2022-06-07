@@ -3,7 +3,6 @@ package main.java.math;
 import main.java.InvalidParamsException;
 
 import java.util.HashSet;
-import java.util.Iterator;
 
 /**
  * Алгоритм Дейкстры для нахождения кратчайшего пути в графе
